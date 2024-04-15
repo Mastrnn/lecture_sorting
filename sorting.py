@@ -22,9 +22,23 @@ def read_data(file_name):
                     data[header].append(int(value))
     return data
 
+def selection_sort(cisla):
+    #první for cyklus si pamatuje indexy čísel
+    for i in range (len(cisla)):
+        min_index = i
+        #druhý for cyklus si pamatuje minimum
+        for j in range(min_index+1, len(cisla)):
+            if cisla[j]< cisla[min_index]:
+                min_index = j
+        #prohození čísel
+        cisla[i], cisla[min_index] = cisla[min_index], cisla [i]
+    return cisla
+
 def main():
-    slovnik=read_data("numbers.csv")
-    print(slovnik)
+    data=read_data("numbers.csv")
+    print(data)
+    sort = selection_sort(data["series_3"])
+    print(sort)
 
 
 if __name__ == '__main__':
