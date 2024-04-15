@@ -39,13 +39,19 @@ def selection_sort(cisla,direction):
         cisla[i], cisla[min_index] = cisla[min_index], cisla [i]
     return cisla
 
-#def bubble_sort(numbers):
+def bubble_sort(numbers):
+    for i in range(len(numbers)):
+        for j in range(0, len(numbers)-i-1):
+            if numbers[j]>numbers[j+1]:
+                numbers[j], numbers[j+1]=numbers[j+1],numbers[j]
+    return numbers
 def main():
     data=read_data("numbers.csv")
     print(data)
-    sort = selection_sort(data["series_1"],direction="sestupně")
+    sort = selection_sort(data["series_1"],direction="vzestupně")
     print(sort)
-    #sort2=bubble_sort(data["series_2"])
+    sort2=bubble_sort(data["series_1"])
+    print(sort2)
 
 
 if __name__ == '__main__':
