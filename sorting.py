@@ -45,13 +45,29 @@ def bubble_sort(numbers):
             if numbers[j]>numbers[j+1]:
                 numbers[j], numbers[j+1]=numbers[j+1],numbers[j]
     return numbers
+
+def insertion_sort(data):
+    for i in range(1, len(data)):
+        key = data[i]
+
+        j = i - 1
+        while j >= 0 and key < data[j]:
+            data[j + 1] = data[j]
+            j -= 1
+
+        data[j + 1] = key
+    return data
+
+
 def main():
     data=read_data("numbers.csv")
     print(data)
-    sort = selection_sort(data["series_1"],direction="vzestupně")
+    sort = selection_sort(data["series_3"],direction="vzestupně")
     print(sort)
-    sort2=bubble_sort(data["series_1"])
+    sort2=bubble_sort(data["series_3"])
     print(sort2)
+    sort3=insertion_sort(data["series_3"])
+    print(sort3)
 
 
 if __name__ == '__main__':
